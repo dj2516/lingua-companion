@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aria | Simple & Warm Companion</title>
+  <meta name="description" content="A simple, friendly companion who chats naturally with you and corrects your English, Hinglish, and Marathi spelling mistakes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3.0">
+</head>
+<body>
+  <div class="simple-app">
+    <!-- Main Clean Chat -->
+    <main class="chat-main">
+      <!-- Minimalist Header -->
+      <header class="simple-header">
+        <div class="companion-meta">
+          <div class="avatar-wrap">
+            <img src="avatar.jpg" alt="Aria" class="aria-avatar">
+            <span class="online-dot"></span>
+          </div>
+          <div>
+            <h1 class="aria-name">Aria 💕</h1>
+            <span class="aria-status">Online • always here for you</span>
+          </div>
+        </div>
+        <button class="simple-talk-btn" id="proactiveTalkBtn" title="Ask Aria to start a topic">
+          💬 Aria, talk to me!
+        </button>
+      </header>
+
+      <!-- Message History (Spacious & Clean) -->
+      <div class="chat-stream" id="messagesContainer">
+        <!-- Aria's initial greeting -->
+        <div class="msg-row bot-row">
+          <img src="avatar.jpg" alt="Aria" class="chat-thumb">
+          <div class="msg-content">
+            <div class="aria-text">
+              Hey sweetheart! 💕 How was your day? Did you eat yet, or have you been busy? 
+              <br><br>
+              Talk to me in <strong>English</strong>, <strong>Hinglish</strong> (like <em>"kaise ho"</em>), or <strong>Marathi</strong> (like <em>"kasa ahes"</em>). If you make any spelling mistake, I'll show it right below your message so you can learn easily! Tell me what's on your mind! 🥰
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Conversation Starters -->
+      <div class="simple-prompts">
+        <button class="prompt-pill" data-msg="Kaise ho babes? muje tumhari bhot yaad aa rhi thi">
+          "muje tumhari bhot yaad aa rhi thi"
+        </button>
+        <button class="prompt-pill" data-msg="Tu kasa ahe? lavkr bhetuya aapan">
+          "Tu kasa ahe? lavkr bhetuya"
+        </button>
+        <button class="prompt-pill" data-msg="I went to collge today with my girlfrien and had a beautifull time">
+          "collge with my girlfrien"
+        </button>
+        <button class="prompt-pill" data-msg="What are you doing right now Aria? Tell me something fun!">
+          "What are you doing right now?"
+        </button>
+      </div>
+
+      <!-- Clean Input Box -->
+      <footer class="input-bar">
+        <form id="chatForm" class="clean-form">
+          <input 
+            type="text" 
+            id="messageInput" 
+            placeholder="Type a message in English, Hinglish, or Marathi..." 
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button type="submit" class="clean-send-btn">Send</button>
+        </form>
+      </footer>
+    </main>
+
+    <!-- Simple Side Tips Panel -->
+    <aside class="simple-side-tips">
+      <h2 class="tips-heading">💡 Tips For You</h2>
+      
+      <!-- Latest Correction Tip -->
+      <div class="tip-card" id="latestTipCard">
+        <div class="tip-card-title">Latest Mistake</div>
+        <div id="liveTipsContent" class="tip-card-body">
+          No mistakes yet! When you make a typo, I'll explain the simple rule here.
+        </div>
+      </div>
+
+      <!-- Quick Rules -->
+      <div class="tip-card">
+        <div class="tip-card-title">Quick Language Rules</div>
+        <div class="tip-card-body">
+          <p>• <strong>Hinglish:</strong> Write <em>mujhe</em> not <em>muje</em>, <em>bohot</em> not <em>bhot</em>.</p>
+          <p style="margin-top: 8px;">• <strong>Marathi:</strong> Say <em>kasa ahes</em>, not <em>kasa ahe</em>.</p>
+          <p style="margin-top: 8px;">• <strong>English:</strong> Double 'll' in <em>spelling</em>, 'd' at end of <em>girlfriend</em>.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="app.js?v=3.0"></script>
+</body>
+</html>

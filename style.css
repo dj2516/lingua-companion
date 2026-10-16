@@ -1,0 +1,455 @@
+/* ==========================================================================
+   Aria - Ultra-Clean, Simple & Spacious Layout
+   Zero congestion, large readable companion font, crystal-clear corrections
+   ========================================================================== */
+
+:root {
+  --bg-app: #0b0f19;
+  --bg-chat: #0f172a;
+  --bg-sidebar: #0b1120;
+  --bg-bubble-aria: #1e293b;
+  --bg-bubble-user: #e11d48;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  --accent-pink: #f43f5e;
+  --accent-green: #34d399;
+  --accent-red: #f87171;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-family);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+/* App Wrapper: Main Chat (Left/Center) + Simple Side Tips (Right) */
+.simple-app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ==========================================================================
+   Main Chat Section
+   ========================================================================== */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-chat);
+  border-right: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* Header */
+.simple-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 36px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.companion-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.aria-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-pink);
+}
+
+.online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  border: 2px solid var(--bg-chat);
+}
+
+.aria-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.aria-status {
+  font-size: 0.8rem;
+  color: #38bdf8;
+}
+
+.simple-talk-btn {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid var(--accent-pink);
+  color: #fda4af;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.simple-talk-btn:hover {
+  background: var(--accent-pink);
+  color: #fff;
+}
+
+/* Messages Stream */
+.chat-stream {
+  flex: 1;
+  padding: 32px 48px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.chat-stream::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-stream::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+.msg-row {
+  display: flex;
+  gap: 14px;
+  max-width: 800px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.msg-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 720px;
+}
+
+/* User Message */
+.user-row {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.user-bubble {
+  background: var(--bg-bubble-user);
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 18px;
+  border-top-right-radius: 4px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   Clear Mistake Box: Shown DIRECTLY Below User Message
+   ========================================================================== */
+.mistake-box-below {
+  background: #181116;
+  border: 1.5px solid var(--accent-red);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.mistake-header-line {
+  color: var(--accent-red);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mistake-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mistake-pair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.word-bad {
+  color: #fca5a5;
+  text-decoration: line-through;
+  font-weight: 700;
+  background: rgba(248, 113, 113, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.word-arrow {
+  color: var(--text-dim);
+}
+
+.word-good {
+  color: #6ee7b7;
+  font-weight: 700;
+  background: rgba(52, 211, 153, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.mistake-hint {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.no-mistakes-badge {
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  padding: 2px 4px;
+}
+
+/* ==========================================================================
+   Aria's Message: BIG, HUMAN-LIKE TEXT
+   ========================================================================== */
+.bot-row {
+  align-self: flex-start;
+}
+
+.aria-text {
+  background: var(--bg-bubble-aria);
+  border: 1px solid var(--border-subtle);
+  color: #f1f5f9;
+  padding: 18px 24px;
+  border-radius: 20px;
+  border-top-left-radius: 4px;
+  /* Requested BIG text */
+  font-size: 1.18rem;
+  line-height: 1.65;
+  word-break: break-word;
+}
+
+.aria-text strong {
+  color: #fff;
+}
+
+/* Typing Indicator */
+.typing-box {
+  display: inline-flex;
+  gap: 6px;
+  padding: 16px 20px;
+  background: var(--bg-bubble-aria);
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-pink);
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Quick Prompts */
+.simple-prompts {
+  padding: 8px 48px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  border-top: 1px solid var(--border-subtle);
+  background: rgba(11, 15, 25, 0.4);
+}
+
+.simple-prompts::-webkit-scrollbar {
+  display: none;
+}
+
+.prompt-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.prompt-pill:hover {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: var(--accent-pink);
+  color: #fff;
+}
+
+/* Clean Input Bar */
+.input-bar {
+  padding: 16px 48px 24px 48px;
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.clean-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 6px 8px 6px 20px;
+}
+
+.clean-form:focus-within {
+  border-color: var(--accent-pink);
+}
+
+#messageInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: var(--font-family);
+  padding: 8px 0;
+}
+
+#messageInput::placeholder {
+  color: var(--text-dim);
+}
+
+.clean-send-btn {
+  background: var(--accent-pink);
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 22px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.clean-send-btn:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Simple Side Tips Panel (300px wide, minimal & calm)
+   ========================================================================== */
+.simple-side-tips {
+  width: 300px;
+  min-width: 280px;
+  background: var(--bg-sidebar);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.tips-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tip-card-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-pink);
+  letter-spacing: 0.04em;
+}
+
+.tip-card-body {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.tip-card-body em {
+  color: var(--accent-green);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .simple-side-tips {
+    display: none;
+  }
+  .chat-stream {
+    padding: 20px;
+  }
+  .input-bar {
+    padding: 12px 20px 20px 20px;
+  }
+}
